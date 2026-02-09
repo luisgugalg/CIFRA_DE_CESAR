@@ -1,0 +1,10 @@
+mensagem = "Workshop IA & ML 2025.2!"
+deslocamento = 5
+
+# Testando codificação
+codificada = codificar_cesar(mensagem, deslocamento)
+print("Mensagem codificada:", codificada)
+
+# Testando decodificação
+decodificada = decodificar_cesar(codificada, deslocamento)
+print("Mensagem decodificada:", decodificada)
