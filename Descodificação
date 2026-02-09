@@ -1,0 +1,29 @@
+#A decodificação ela segue o mesmo princípio da codificação.
+
+def decodificar_cesar(texto, deslocamento):
+  # Defini a função, e a chamei de decodificar_cesar (no caso, vocês inventaram o nome)
+  # texto = É o texto codificado que eu vou utilizar para decifrar
+  # deslocamento = O número de casas que foi utilizado para codificar
+
+    mensagem_decodificada = "" #Está vazio, pois irá guardar o texto decifrado aos poucos
+
+    for letra in texto: # Percorre cada caractere do texto passado para a função, um por um.
+        if letra.isupper(): # Maiúscula
+            pos = ord(letra) - ord('A') # 0 - 25 # Transformando letra em número.
+            nova_pos = (pos - deslocamento) % 26 # Subtrai o deslocamento, caso necessário
+            nova_letra = chr(ord('A') + nova_pos) # Transforma a posição de volta para letra
+            mensagem_decodificada += nova_letra # Agora, adicionamos a nova letra decifrada a mensagem final em questão.
+
+
+        # Mesmo processo descrito acima, sendo que com letra minúscula agora.
+
+        elif letra.islower(): # Minúscula
+            pos = ord(letra) - ord('a')
+            nova_pos = (pos - deslocamento) % 26
+            nova_letra = chr(ord('a') + nova_pos)
+            mensagem_decodificada += nova_letra
+
+        else:
+            mensagem_decodificada += letra
+
+    return mensagem_decodificada
