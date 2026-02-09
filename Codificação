@@ -1,0 +1,42 @@
+def codificar_cesar(texto, deslocamento):
+    mensagem_codificada = ""
+
+    #Nessa primeira parte do código, eu deduzi que seria apenas letras maiúsculas.
+    for letra in texto: # Percorre cada caractere do texto passado para a função, um por um.
+
+        if letra.isupper(): #Nesse caso, usei o isupper, pois primeiro vou fazer com letras maiúsculas
+
+
+            pos = ord(letra) - ord('A')
+            #Aqui coloquei a variável "pos", para definir a posição na tabela, e calcular sua posição, Exemplo: A=0, B=1, C=2...
+            #Outro ponto importante aqui, é entedermos o que significa "ORD" = ORD() é uma função do python que ele pega uma letra e transforma em número, exemplificado na linha acima.
+
+
+            #Na linha acima, "defini" a posição de cada letra com a função ORD, agora eu vou somar o deslocamento
+
+            nova_pos = (pos + deslocamento) % 26
+            #Explicando o que significa esse %26
+              # 1º - % no Python significa o resto da divisão
+              # 2º - 26 é porque temos 26 letras no alfabeto
+              # 3º - Quando ele passar de 25, ele automaticamente voltará para o 0
+
+
+            nova_letra = chr(ord('A') + nova_pos)
+            mensagem_codificada += nova_letra
+            # "nova_letra" é a variável para definir a nova letra
+            # Lá em cima vimos que, o ORD transforma a letra em número, agora, usamos o CHR para transformar esse número na letra correta.
+
+    #Nessa segunda parte do código, fiz O MESMO CÓDIGO, sendo para letras minusculas.
+    #Não irei explicar novamente, para não poluir ainda mais o código.
+
+        elif letra.islower():
+            pos = ord(letra) - ord('a')
+            nova_pos = (pos + deslocamento) % 26
+            nova_letra = chr(ord('a') + nova_pos)
+            mensagem_codificada += nova_letra
+
+
+        else:
+            mensagem_codificada += letra #Esse else eu coloquei para caso vim, caracteres, tipo (.,!?) - Tudo aquilo que não for letra, continue o mesmo, sem passar pela cifra.
+
+    return mensagem_codificada
